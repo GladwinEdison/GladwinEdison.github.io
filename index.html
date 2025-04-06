@@ -1,116 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elegant Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Fun Static Website</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
     }
 
     header {
-      padding: 30px;
+      background-color: #6a11cb;
+      background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+      color: white;
+      padding: 20px;
       text-align: center;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    .clock {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 18px;
     }
 
-    header p {
-      font-size: 1.2rem;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffd700;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 30px;
-      background-color: #ffd700;
+    marquee {
+      background-color: #f8f8f8;
       color: #333;
-      border-radius: 30px;
+      padding: 10px;
       font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s;
     }
 
-    .btn:hover {
-      background-color: #ffcc00;
+    .container {
+      flex: 1;
+      display: flex;
+    }
+
+    aside {
+      width: 200px;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
+
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    aside ul li {
+      margin: 15px 0;
+    }
+
+    aside ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      background-color: #ecf0f1;
     }
 
     footer {
+      background-color: #34495e;
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      background-color: rgba(0,0,0,0.2);
+      padding: 10px;
     }
 
-    footer p {
-      font-size: 0.9rem;
+    #quote-box {
+      background: #fff;
+      border-left: 5px solid #3498db;
+      padding: 10px 15px;
+      margin-top: 20px;
+      font-style: italic;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>My Beautiful Website</h1>
-    <p>Where creativity meets design</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h2>Welcome to Your New Web Space</h2>
-    <p>Discover a fresh digital presence. Whether you're a creator, a business, or just exploring, this site is your canvas to showcase your work and ideas.</p>
-    <a href="#contact" class="btn">Get Started</a>
-  </section>
+<header>
+  <h1>🌟 Welcome to My Awesome Site 🌟</h1>
+  <div class="clock" id="clock"></div>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
+<marquee behavior="scroll" direction="left">🎉 Stay tuned for updates | 😄 Enjoy your time here | 🚀 Built with HTML + CSS!</marquee>
+
+<div class="container">
+  <aside>
+    <h3>Navigation</h3>
+    <ul>
+      <li><a href="#">🏠 Home</a></li>
+      <li><a href="#">📸 Gallery</a></li>
+      <li><a href="#">📞 Contact</a></li>
+      <li><a href="#">ℹ️ About</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h2>Hello there!</h2>
+    <p>This is a fun static site to keep you entertained.</p>
+
+    <div id="quote-box">"Loading fun quotes..."</div>
+  </main>
+</div>
+
+<footer>
+  &copy; 2025 | Made with 💖 by Solomon | All rights reserved.
+</footer>
+
+<script>
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString();
+    document.getElementById("clock").textContent = timeStr;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Random fun quotes
+  const quotes = [
+    "I'm not lazy, I'm on energy-saving mode.",
+    "Why don’t scientists trust atoms? Because they make up everything!",
+    "Life is short. Smile while you still have teeth 😁",
+    "404: Motivation not found...",
+    "Dear Math, I'm not a therapist. Solve your own problems!"
+  ];
+
+  function changeQuote() {
+    const quoteBox = document.getElementById("quote-box");
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteBox.textContent = `"${quote}"`;
+  }
+
+  setInterval(changeQuote, 5000);
+  changeQuote();
+</script>
+
 </body>
 </html>
