@@ -9,8 +9,8 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      height: 100vh;
       flex-direction: column;
+      height: 100vh;
     }
 
     header {
@@ -29,16 +29,24 @@
       font-size: 18px;
     }
 
-    marquee {
+    .marquee-wrapper {
+      z-index: 1;
+      position: relative;
       background-color: #f8f8f8;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    marquee {
       color: #333;
       padding: 10px;
       font-weight: bold;
+      font-size: 16px;
     }
 
     .container {
       flex: 1;
       display: flex;
+      overflow: hidden;
     }
 
     aside {
@@ -46,7 +54,7 @@
       background-color: #2c3e50;
       color: white;
       padding: 20px;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     }
 
     aside ul {
@@ -67,7 +75,6 @@
       flex: 1;
       padding: 20px;
       background-color: #ecf0f1;
-      overflow-y: auto;
     }
 
     footer {
@@ -86,34 +93,33 @@
       color: #555;
     }
 
-    #contact {
-      margin-top: 40px;
+    .contact-form {
+      background-color: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
     }
 
-    #contact form {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      max-width: 400px;
-    }
-
-    #contact input,
-    #contact textarea {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       margin-bottom: 10px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 14px;
     }
 
-    .pageclip-form__submit {
+    .contact-form button {
       background-color: #3498db;
       color: white;
-      padding: 10px 15px;
       border: none;
-      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -124,7 +130,12 @@
   <div class="clock" id="clock"></div>
 </header>
 
-<marquee behavior="scroll" direction="left">🎉 Stay tuned for updates | 😄 Enjoy your time here | 🚀 Built with HTML + CSS!</marquee>
+<!-- Marquee Section -->
+<div class="marquee-wrapper">
+  <marquee behavior="scroll" direction="left">
+    🎉 Stay tuned for updates | 😄 Enjoy your time here | 🚀 Bon Voyage!
+  </marquee>
+</div>
 
 <div class="container">
   <aside>
@@ -132,7 +143,7 @@
     <ul>
       <li><a href="#">🏠 Home</a></li>
       <li><a href="#">📸 Gallery</a></li>
-      <li><a href="#contact">📞 Contact</a></li>
+      <li><a href="#">📞 Contact</a></li>
       <li><a href="#">ℹ️ About</a></li>
     </ul>
   </aside>
@@ -143,16 +154,16 @@
 
     <div id="quote-box">"Loading fun quotes..."</div>
 
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="pageclip-form__submit"><span>Send</span></button>
-      </form>
-    </section>
-
+    <!-- Contact Form -->
+    <h2>Contact Me</h2>
+    <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form contact-form" method="post">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit" class="pageclip-form__submit">
+        <span>Send</span>
+      </button>
+    </form>
   </main>
 </div>
 
@@ -160,35 +171,7 @@
   &copy; 2025 | Made with 💖 by Solomon | All rights reserved.
 </footer>
 
+<!-- Pageclip JS -->
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-<script>
-  // Clock
-  function updateClock() {
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString();
-    document.getElementById("clock").textContent = timeStr;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
 
-  // Fun quotes
-  const quotes = [
-    "I'm not lazy, I'm on energy-saving mode.",
-    "Why don’t scientists trust atoms? Because they make up everything!",
-    "Life is short. Smile while you still have teeth 😁",
-    "404: Motivation not found...",
-    "Dear Math, I'm not a therapist. Solve your own problems!"
-  ];
-
-  function changeQuote() {
-    const quoteBox = document.getElementById("quote-box");
-    const quote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteBox.textContent = `"${quote}"`;
-  }
-
-  setInterval(changeQuote, 5000);
-  changeQuote();
-</script>
-
-</body>
-</html>
+<!-- JS for Clock &
