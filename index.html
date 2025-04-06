@@ -3,21 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My New Domain</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Elegant Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      padding: 0;
+    }
+
+    header {
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #ffd700;
+      color: #333;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ffcc00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.2);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Website</h1>
+    <h1>My Beautiful Website</h1>
+    <p>Where creativity meets design</p>
     <nav>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section id="hero">
-      <h2>Your tagline or mission statement</h2>
-      <p>This is your space to introduce your brand, service, or idea.</p>
-    </section>
+  <section class="hero">
+    <h2>Welcome to Your New Web Space</h2>
+    <p>Discover a fresh digital presence. Whether you're a creator, a business, or just exploring, this site is your canvas to showcase your work and ideas.</p>
+    <a href="#contact" class="btn">Get Started</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
