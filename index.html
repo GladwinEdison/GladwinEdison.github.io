@@ -3,125 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Fun Static Website</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    header {
-      background-color: #6a11cb;
-      background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    .clock {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 18px;
-    }
-
-    .marquee-wrapper {
-      z-index: 1;
-      position: relative;
-      background-color: #f8f8f8;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    marquee {
-      color: #333;
-      padding: 10px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .container {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    }
-
-    aside {
-      width: 200px;
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    aside ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    aside ul li {
-      margin: 15px 0;
-    }
-
-    aside ul li a {
-      color: #ecf0f1;
-      text-decoration: none;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-      background-color: #ecf0f1;
-    }
-
-    footer {
-      background-color: #34495e;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-
-    #quote-box {
-      background: #fff;
-      border-left: 5px solid #3498db;
-      padding: 10px 15px;
-      margin-top: 20px;
-      font-style: italic;
-      color: #555;
-    }
-
-    .contact-form {
-      background-color: white;
-      padding: 20px;
-      margin-top: 30px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .contact-form button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-  </style>
 </head>
 <body>
 
@@ -142,9 +25,9 @@
     <h3>Navigation</h3>
     <ul>
       <li><a href="#">🏠 Home</a></li>
-      <li><a href="#">📸 Gallery</a></li>
-      <li><a href="#">📞 Contact</a></li>
-      <li><a href="#">ℹ️ About</a></li>
+      <li><a href="#gallery">📸 Gallery</a></li>
+      <li><a href="#contact">📞 Contact</a></li>
+      <li><a href="#about">ℹ️ About</a></li>
     </ul>
   </aside>
 
@@ -154,16 +37,34 @@
 
     <div id="quote-box">"Loading fun quotes..."</div>
 
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2>📸 Fun Gallery</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/150" alt="Fun image 1">
+        <img src="https://via.placeholder.com/150" alt="Fun image 2">
+        <img src="https://via.placeholder.com/150" alt="Fun image 3">
+      </div>
+    </section>
+
     <!-- Contact Form -->
-    <h2>Contact Me</h2>
-    <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form contact-form" method="post">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit" class="pageclip-form__submit">
-        <span>Send</span>
-      </button>
-    </form>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form contact-form" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" class="pageclip-form__submit">
+          <span>Send</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>ℹ️ About This Site</h2>
+      <p>This site was made just for fun using HTML, CSS, and a bit of JavaScript magic. It's here to bring a smile to your face and maybe even get you inspired to build something cool!</p>
+    </section>
   </main>
 </div>
 
@@ -174,4 +75,24 @@
 <!-- Pageclip JS -->
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 
-<!-- JS for Clock &
+<!-- JS for Clock & More -->
+<script>
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    document.getElementById('clock').textContent = time;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Random Quote
+  const quotes = [
+    "Why don’t scientists trust atoms? Because they make up everything!",
+    "I'm reading a book about anti-gravity. It's impossible to put down!",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!"
+  ];
+  document.getElementById('quote-box').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
+</body>
+</html>
