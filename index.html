@@ -24,18 +24,19 @@
   <aside>
     <h3>Navigation</h3>
     <ul>
-      <li><a href="#">🏠 Home</a></li>
+      <li><a href="#" onclick="showSection('home')">🏠 Home</a></li>
       <li><a href="#gallery">📸 Gallery</a></li>
-      <li><a href="#contact">📞 Contact</a></li>
+      <li><a href="#" onclick="showSection('contact')">📞 Contact</a></li>
       <li><a href="#about">ℹ️ About</a></li>
     </ul>
   </aside>
 
   <main>
-    <h2>Hello there!</h2>
-    <p>This is a fun static site to keep you entertained.</p>
-
-    <div id="quote-box">"Loading fun quotes..."</div>
+    <div id="home">
+      <h2>Hello there!</h2>
+      <p>This is a fun static site to keep you entertained.</p>
+      <div id="quote-box">"Loading fun quotes..."</div>
+    </div>
 
     <!-- Gallery Section -->
     <section id="gallery">
@@ -47,8 +48,8 @@
       </div>
     </section>
 
-    <!-- Contact Form -->
-    <section id="contact">
+    <!-- Contact Form (Hidden Initially) -->
+    <section id="contact" style="display:none;">
       <h2>Contact Me</h2>
       <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form contact-form" method="post">
         <input type="text" name="name" placeholder="Your Name" required />
@@ -75,7 +76,7 @@
 <!-- Pageclip JS -->
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 
-<!-- JS for Clock & More -->
+<!-- JS for Clock, Quotes & Section Toggle -->
 <script>
   function updateClock() {
     const now = new Date();
@@ -92,6 +93,15 @@
     "Why did the scarecrow win an award? Because he was outstanding in his field!"
   ];
   document.getElementById('quote-box').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+  // Toggle Contact Section
+  function showSection(sectionId) {
+    const sections = ['home', 'contact'];
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) section.style.display = (id === sectionId) ? 'block' : 'none';
+    });
+  }
 </script>
 
 </body>
