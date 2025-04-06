@@ -67,6 +67,7 @@
       flex: 1;
       padding: 20px;
       background-color: #ecf0f1;
+      overflow-y: auto;
     }
 
     footer {
@@ -85,22 +86,33 @@
       color: #555;
     }
 
-    form input, form textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    #contact {
+      margin-top: 40px;
     }
 
-    form button {
-      background-color: #2575fc;
+    #contact form {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .pageclip-form__submit {
+      background-color: #3498db;
       color: white;
+      padding: 10px 15px;
       border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
     }
   </style>
@@ -120,7 +132,7 @@
     <ul>
       <li><a href="#">🏠 Home</a></li>
       <li><a href="#">📸 Gallery</a></li>
-      <li><a href="#">📞 Contact</a></li>
+      <li><a href="#contact">📞 Contact</a></li>
       <li><a href="#">ℹ️ About</a></li>
     </ul>
   </aside>
@@ -131,15 +143,16 @@
 
     <div id="quote-box">"Loading fun quotes..."</div>
 
-    <h2>Contact Me 💌</h2>
-    <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form" method="post">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit" class="pageclip-form__submit">
-        <span>Send</span>
-      </button>
-    </form>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://send.pageclip.co/MtCM6iZveubb699oHN1tzkkYuwOjNpbM/Mysite" class="pageclip-form" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="pageclip-form__submit"><span>Send</span></button>
+      </form>
+    </section>
+
   </main>
 </div>
 
@@ -147,6 +160,7 @@
   &copy; 2025 | Made with 💖 by Solomon | All rights reserved.
 </footer>
 
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 <script>
   // Clock
   function updateClock() {
@@ -157,7 +171,7 @@
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Random fun quotes
+  // Fun quotes
   const quotes = [
     "I'm not lazy, I'm on energy-saving mode.",
     "Why don’t scientists trust atoms? Because they make up everything!",
@@ -176,6 +190,5 @@
   changeQuote();
 </script>
 
-<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
